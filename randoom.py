@@ -26,7 +26,7 @@ def call_openai_api(conversation):
 
 
 def main():
-    API_KEY = "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"
+    API_KEY = os.getenv("OPENAI_API_KEY")
 
     st.set_page_config(page_title="How do I get the jobseekers?", layout="wide")
     openai.api_key = API_KEY
