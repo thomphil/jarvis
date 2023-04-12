@@ -39,7 +39,7 @@ def main():
     st.title("Job Seeker Automated Application Filler")
     st.write("Enter application description below:")
 
-    user_input = st.text_area("Type your content:", height=200)
+    user_input = st.text_area("Type your content:", height=100)
 
     has_previously_generated = len(getattr(st.session_state, "messages", [])) > 1
     reset = not has_previously_generated or st.checkbox("Reset", value=False)
@@ -58,7 +58,7 @@ def main():
             messages.append(
                 {
                     "role": "user",
-                    "content": f"Create an HTML web page with accompanying CSS and JavaScript in a single HTML-file. The web page will be a presentation similar to a power point presentation with ability to move between slides using the left and right arrow keys (even in fullscreen mode). Each slight will need an image (that you should link to a real publicly available image and embed it in the HTML code as a img tag) and some text; display the text as either bullet points or a paragraph but make it suitable for a powerpoint presentation so short and concise. Create a fullscreen button, that will allow the presentation to fill the whole screen (a single slide will fill the whole screen and then pressing the left and right arrows will allow you to move between previous and next slide), this can be exited using the escape button. The content of the slides will be complimentary to a lesson plan and allow for a teacher to use them as prompts for their lesson, on the subject of: {user_input}",
+                    "content": f"Create an HTML web page with accompanying CSS and JavaScript in a single HTML-file. Use suitable JS packages (linked from a CDN) where ever applicable. Generate this content from: {user_input}",
                 }
             )
         else:
@@ -103,7 +103,7 @@ def main():
     # html is from from streamlit.components.v1 import html
     if "code" in st.session_state and st.session_state.code is not None:
         st.header("Generated website")
-        html(st.session_state.code, height=600, scrolling=True)
+        html(st.session_state.code, height=800, scrolling=True)
 
     # display the code and explanations
     if has_previously_generated and st.session_state.code is not None:

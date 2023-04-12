@@ -1,0 +1,1 @@
+Create an HTML web page with accompanying CSS and JavaScript in a single HTML-file. Use suitable JS packages (linked from a CDN) where ever applicable. Generate this content from: {user_input}"
