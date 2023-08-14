@@ -20,7 +20,7 @@ def get_starting_convo():
 def call_openai_api(conversation):
     st.spinner("The code is being generated...")
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo", messages=conversation, temperature=0.1
+        model="gpt-4", messages=conversation, temperature=0.1
     )
     return response["choices"][0]["message"]["content"].strip()
 
